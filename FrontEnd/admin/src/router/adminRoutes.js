@@ -8,6 +8,8 @@ import Employee from "@/views/EmployeePage.vue";
 import UpdateEmployee from "@/views/UpdateEmployee.vue";
 import Reader from "@/views/ReaderPage.vue";
 import UpdateReader from "@/views/UpdateReader.vue";
+import Borow from "@/views/BorowPage.vue";
+import UpdateBorow from "@/views/UpdateBorow.vue";
 
 const routes = [
     {
@@ -37,7 +39,7 @@ const routes = [
                         name: "productPage",
                     },
                     {
-                        path: ":id",
+                        path: "/:id",
                         name: "productDetailPage",
                         component: ProductDetail,
                     },
@@ -114,21 +116,26 @@ const routes = [
                     },
                 ]
             },
-            // {
-            //     path: "orders",
-            //     children: [
-            //         {
-            //             path: "",
-            //             component: Order,
-            //             name: "orderPage",
-            //         },
-            //         {
-            //             path: ":id",
-            //             component: OrderDatail,
-            //             name: "orderDetailPage",
-            //         },
-            //     ],
-            // },
+            {
+                path: "borows",
+                children: [
+                    {
+                        path: "",
+                        component: Borow,
+                        name: "borowPage",
+                    },
+                    {
+                        path: "update-borow/:id",
+                        component: UpdateBorow,
+                        name: "updateBorowPage",
+                    },
+                    {
+                        path: "add-borow",
+                        component: UpdateBorow,
+                        name: "addBorowPage",
+                    },
+                ],
+            },
         ],
     }
 ]

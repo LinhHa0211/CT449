@@ -31,8 +31,12 @@
             <input type="text" class="form-control" id="phone" v-model="phone">
         </div>
 
-        <div class="submit-form">
-            <BaseButton @submit="handleSubmit" :contentComponent="'<p>Submit</p>'"></BaseButton>
+        <div v-if="isRegister" class="submit-form">
+            <BaseButton @submit="handleSubmit" :contentComponent="'<p>Submit</p>'" nameBtn="Đăng ký"></BaseButton>
+        </div>
+
+        <div v-if="!isRegister" class="submit-form">
+            <BaseButton @submit="handleSubmit" :contentComponent="'<p>Submit</p>'" nameBtn="Đăng nhập"></BaseButton>
         </div>
     </form>
 </template>

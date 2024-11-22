@@ -1,18 +1,22 @@
 <template>
     <form enctype="multipart/form-data" @submit.prevent="handleSubmit">
         <div class="form-group">
-            <label for="name">Tên nhà xuất bản</label>
-            <input type="text" class="form-control" id="name" v-model="name">
+            <label for="readerID">ID độc giả</label>
+            <input type="text" class="form-control" id="readerID" v-model="readerID">
         </div>
 
         <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" v-model="email">
+            <label for="bookID">ID sách</label>
+            <input type="text" class="form-control" id="bookID" v-model="bookID">
         </div>
 
         <div class="form-group">
-            <label for="address">Địa chỉ</label>
-            <input type="text" class="form-control" id="address" v-model="address">
+            <label for="employeeID">Id nhân viên</label>
+            <input type="text" class="form-control" id="employeeID" v-model="employeeID">
+        </div>
+        <div class="form-group">
+            <label for="returnedDate">Ngày trả sách</label>
+            <input type="date" class="form-control" id="returnedDate" v-model="returnedDate">
         </div>
         <div class="submit-form">
             <BaseButton nameBtn="Cập nhật" styleBtn="btn-primary" @submit="handleSubmit" class="btn-item"></BaseButton>
@@ -25,44 +29,39 @@ import BaseButton from "@/components/common/BaseButton.vue";
 
 export default {
     props: {
-        publisher: {
+        borow: {
             type: Object,
             default: null,
         }
     },
     emits: ['submit'],
-    data() {
-        return {
-            name: "Tên nhà xuất bản",
-            email: "nhaxuatban@gmail.com",
-            address: "Xuan Khanh, Ninh Kieu, Can Tho",
-        };
-    },
     components: {
         BaseButton,
     },
     watch: {
-        publisher(newVal) {
+        borow(newVal) {
             this.formData(newVal);
         }
     },
     methods: {
-        formData(publisher) {
-            if (publisher) {
-                this.name = publisher.name;
-                this.email = publisher.email;
-                this.address = publisher.address;
-                if (publisher._id) {
-                    this._id = publisher._id;
+        formData(borow) {
+            if (borow) {
+                this.readerID = borow.readerID;
+                this.bookID = borow.bookID;
+                this.employeeID = borow.employeeID;
+                this.returnedDate = borow.returnedDate;
+                if (borow._id) {
+                    this._id = borow._id;
                 }
             }
         },
         async handleSubmit(event) {
             event.preventDefault();
             const data = {
-                name: this.name,
-                email: this.email,
-                address: this.address,
+                readerID: this.readerID,
+                bookID: this.bookID,
+                employeeID: this.employeeID,
+                returnedDate: this.returnedDate,
             };
             if (this._id) {
                 data._id = this._id;

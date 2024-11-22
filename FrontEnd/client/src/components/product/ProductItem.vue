@@ -22,7 +22,7 @@
         </td>
         <td>
             <BaseButton nameBtn="Xem" styleBtn="btn-primary" @click="handleShowDetail" class="btn-func"></BaseButton>
-            <BaseButton nameBtn="Mượn" styleBtn="btn-danger" @click="handleDelete" class="btn-func"></BaseButton>
+            <BaseButton nameBtn="Đăng ký mượn sách" styleBtn="btn-danger" class="btn-func"></BaseButton>
         </td>
     </tr>
 </template>

@@ -11,17 +11,9 @@ const borrowRequestSchema = new mongoose.Schema({
         ref: 'Book',
         required: true,
     },
-    status: {
-        type: String,
-        enum: ['pending', 'approved', 'rejected', 'returned'],
-        default: 'pending',
-    },
-    requestDate: {
-        type: Date,
-        default: Date.now,
-    },
     approvalDate: {
         type: Date,
+        default: Date.now(),
     },
     dueDate: {
         type: Date,

@@ -1,8 +1,7 @@
 <template>
     <div class="product-detail">
         <div class="product-item">
-            <img :src="product.image" alt="Hình Ảnh" width="100" height="100" class="product-img"/>
-            
+            <img :src="product?.image" alt="Hình Ảnh" class="product-img"/>
             <div class="product-info">
                 <h4 class="product-name">{{ product?.name }}</h4>
                 <p class="attribute-product">Số lượng: {{ product?.availableCopies }}</p>

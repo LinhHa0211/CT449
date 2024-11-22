@@ -40,7 +40,7 @@
         </div>
 
         <div class="submit-form">
-            <BaseButton @submit="handleSubmit"></BaseButton>
+            <BaseButton nameBtn="Cập nhật" @submit="handleSubmit"></BaseButton>
         </div>
     </form>
 </template>

@@ -41,11 +41,16 @@ exports.getBorowByName = async (name) => {
 
 exports.createBorow = async (req, res, next) => {
     try {
+        const bookID = req.body.bookID
+        const Book = await model.BookModel.findById(bookID)
+        if (Book.availableCopies < 1) {
+            throw new ApiError(400, 'You can\'t borrow this book!');
+        }
         const data = req.body;
-        if (await this.getBorowByName(data.name))
-            throw new ApiError(400, 'The Borow\'s name already exists.');
         const newBorow = new Borow(data);
         await newBorow.save();
+        Book.availableCopies--;
+        await Book.save();
         res.status(201).json({
             message: "Create Borow successfully",
             data: newBorow,
@@ -83,8 +88,12 @@ exports.updateBorowById = async (req, res, next) => {
         if (!(mongoose.Types.ObjectId.isValid(id))) {
             throw new ApiError(400, "Borow id is not valid");
         }
+        const bookID = req.body.bookID;
+        const Book = await model.BookModel.findById(bookID);
         const data = req.body;
         const result = await model.BorowModel.findOneAndUpdate({ _id: id }, data);
+        Book.availableCopies--;
+        await Book.save();
         res.status(200).json({
             message: "Update publisher successfully",
             data: result,

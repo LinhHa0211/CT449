@@ -13,7 +13,7 @@
             <input type="text" class="form-control" id="phone" v-model="phone">
         </div>
         <div class="submit-form">
-            <BaseButton nameBtn="Submit" styleBtn="btn-primary" @submit="handleSubmit" class="btn-item"></BaseButton>
+            <BaseButton nameBtn="Cập nhật" styleBtn="btn-primary" @submit="handleSubmit" class="btn-item"></BaseButton>
         </div>
     </form>
 </template>

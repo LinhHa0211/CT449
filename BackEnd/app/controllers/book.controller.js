@@ -36,12 +36,14 @@ exports.getBookById = async (req, res, next) => {
 
         if (!result)
             throw new ApiError(400, "Book not exist");
-        if (result.image) {
-            result.image = `data:image/jpeg;base64,${result.image.toString('base64')}`;
+        const bookCopy = result.toObject();
+        if (bookCopy.image) {
+            bookCopy.image = `data:image/jpeg;base64,${bookCopy.image.toString('base64')}`;
         }
+        console.log(result.image)
         res.status(200).json({
             message: "Get Book successfully",
-            data: result,
+            data: bookCopy,
         });
     } catch (err) {
         next(err);

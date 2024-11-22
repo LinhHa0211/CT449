@@ -1,11 +1,11 @@
 <template>
     <nav class="navbar navbar-expand navbar-dark bg-dark">
         <nav-item :title="'Trang chủ'" :routerName="'adminPage'" class="navbar-brand"></nav-item>
-        <nav-item :title="'Sản phẩm'" :routerName="'productPage'" class="navbar-brand"></nav-item>
-        <nav-item :title="'Nhà xuất bản'" :routerName="'publisherPage'" class="navbar-brand"></nav-item>
+        <nav-item :title="'Sách'" :routerName="'productPage'" class="navbar-brand"></nav-item>
+        <nav-item :title="'NXB'" :routerName="'publisherPage'" class="navbar-brand"></nav-item>
         <nav-item :title="'Nhân viên'" :routerName="'employeePage'" class="navbar-brand"></nav-item>
         <nav-item :title="'Độc giả'" :routerName="'readerPage'" class="navbar-brand"></nav-item>
-        <!-- <nav-item :title="'Duyệt đơn hàng'" :routerName="'orderPage'" class="navbar-brand"></nav-item> -->
+        <nav-item :title="'Quản lý'" :routerName="'borowPage'" class="navbar-brand"></nav-item>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-expanded="false">
